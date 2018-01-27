@@ -23,6 +23,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrintNotes-mac", "Tomboy\Ad
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Underline-mac", "Tomboy\Addins\Underline\Underline-mac.csproj", "{15A0F2C4-9BAD-11DE-B022-C19356D89593}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PassEncrypt-mac", "Tomboy\Addins\PassEncrypt\PassEncrypt.csproj", "{9865ddaf-9512-40db-a6af-2056a690ada9}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebSyncService-mac", "Tomboy\Addins\WebSyncService\WebSyncService-mac.csproj", "{ACD1BF72-4962-11DE-8485-01BF55D89593}"
 EndProject
 Global
@@ -83,6 +85,12 @@ Global
 		{15A0F2C4-9BAD-11DE-B022-C19356D89593}.Mac|Any CPU.ActiveCfg = Release|Any CPU
 		{15A0F2C4-9BAD-11DE-B022-C19356D89593}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{15A0F2C4-9BAD-11DE-B022-C19356D89593}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9865ddaf-9512-40db-a6af-2056a690ada9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9865ddaf-9512-40db-a6af-2056a690ada9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9865ddaf-9512-40db-a6af-2056a690ada9}.Mac|Any CPU.ActiveCfg = Debug|Any CPU
+		{9865ddaf-9512-40db-a6af-2056a690ada9}.Mac|Any CPU.Build.0 = Debug|Any CPU
+		{9865ddaf-9512-40db-a6af-2056a690ada9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9865ddaf-9512-40db-a6af-2056a690ada9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
 		name = Tomboy-mac

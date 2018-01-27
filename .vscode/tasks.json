@@ -1,0 +1,31 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "buildTomboy",
+            "type": "shell",
+            "command": "make -f ./Makefile;./autogen.sh --prefix=${workspaceRoot}/bin/Debug;",
+            "group": {
+                "kind": "test",
+                "isDefault": true
+            },
+            "problemMatcher": [
+                "$msCompile"
+            ]
+        },
+        {
+            "label": "buildAll",
+            "type": "shell",
+            "command": "./autogen.sh --prefix=${workspaceRoot}/bin/Debug; find ${workspaceRoot}/Tomboy/Addins -name Makefile -type f -execdir make -w -f {} \\;",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": [
+                "$msCompile"
+            ]
+        }
+    ]
+}
