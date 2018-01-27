@@ -14,11 +14,11 @@ namespace Tomboy.PassEncrypt
         /// <summary>
         /// PassEncryptTag used in xml for writing tag to file.
         /// </summary>
-        public static string TagName = "encpass";
+        public static string TagName  {get;} = "encpass";
         /// <summary>
         /// PassEncryptTag password atribute used in xml for writing tag to file.
         /// </summary>
-        protected static string AtrName = "password";
+        protected static string AtrName  {get;} = "password";
         #endregion
 
         #region methods

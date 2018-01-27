@@ -25,6 +25,12 @@ namespace Tomboy.Tasks
 
 		public TaskTag () : base ()
 		{
+			Attributes.Add(PROP_URI,null);
+			Attributes.Add(PROP_CREATION_DATE,null);
+			Attributes.Add(PROP_LAST_CHANGE_DATE,null);
+			Attributes.Add(PROP_DUE_DATE,null);
+			Attributes.Add(PROP_COMPLETION_DATE,null);
+			Attributes.Add(PROP_PRIORITY,null);
 		}
 
 		public override void Initialize (string element_name)
