@@ -197,14 +197,14 @@ public enum TaskPriority :
 
 
 		const string TASK_DATE_REGEX =
-		        @"(^\s*[0-9]{4}-[0-9]{2}-[0-9]{2}( [1-9]{2}:[1-9]{2})*:)";
+		        @"(\s*[0-9]{4}-[0-9]{2}-[0-9]{2}( [1-9]{2}:[1-9]{2})*:)";
 		const string TASK_PRIORITY_REGEX =
-		        @"(^\s*[ABC]{1}:)";
+		        @"(\s*[ABC]{1}:)";
 
 		static Regex dateRegex;
 		static Regex priorityRegex;
 
-		void FillDataFromSumary ()
+		public void FillDataFromSumary ()
 		{
 			dateRegex = new Regex (TASK_DATE_REGEX,
 			        RegexOptions.IgnoreCase | RegexOptions.Compiled
@@ -219,7 +219,7 @@ public enum TaskPriority :
 				DateTime datetime;
 				if(DateTime.TryParse(date,out datetime))
 				{
-					Data.Summary.Replace(dateMatch.Value,"");
+					Data.Summary = Data.Summary.Replace(dateMatch.Value,"");
 					Data.DueDate = datetime;
 				}
 					
@@ -229,7 +229,7 @@ public enum TaskPriority :
 			        RegexOptions.IgnoreCase | RegexOptions.Compiled
 			        | RegexOptions.Singleline);
 
-			Match priorityMatch = dateRegex.Match (Data.Summary);
+			Match priorityMatch = priorityRegex.Match (Data.Summary);
 			if (priorityMatch.Success)
 			{
 				string priority = priorityMatch.Value.Trim();
@@ -254,7 +254,7 @@ public enum TaskPriority :
 						break;
 				}
 				if (remove)
-					Data.Summary.Replace(priorityMatch.Value,"");
+					Data.Summary = Data.Summary.Replace(priorityMatch.Value,"");
 			}
 		}
 

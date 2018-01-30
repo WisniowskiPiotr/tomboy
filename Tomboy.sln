@@ -33,8 +33,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RemoveBrokenLinks", "Tomboy
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PassEncrypt", "Tomboy\Addins\PassEncrypt\PassEncrypt.csproj", "{9865ddaf-9512-40db-a6af-2056a690ada9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Todos", "Tomboy\Addins\Todos\Todos.csproj", "{9536d4ae-1fa7-472a-8370-e004bb0dc86e}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdvancedPreferences", "Tomboy\Addins\AdvancedPreferences\AdvancedPreferences.csproj", "{35C7F93C-F4D2-4FD0-B669-B02CE1EF29FD}"
 EndProject
 Global

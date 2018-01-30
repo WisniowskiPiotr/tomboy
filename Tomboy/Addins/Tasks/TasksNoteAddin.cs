@@ -151,6 +151,7 @@ namespace Tomboy.Tasks
 						Logger.Debug ("FIXME: Add code to remove the task tag if this case is hit");
 					}
 				}
+				task_tag.fillByData(task.Data);
 
 				Buffer.ApplyTag (task_tag, start, line_end);
 				last_removed_tag = null;
@@ -360,7 +361,6 @@ namespace Tomboy.Tasks
 				}
 			} else {
 				// The iters are on different lines
-
 				line = start;
 				do {
 					task_tag = GetTaskTagFromLineIter (ref line);
@@ -373,7 +373,7 @@ namespace Tomboy.Tasks
 							while (line_end.EndsLine () == false) {
 								line_end.ForwardChar ();
 							}
-//       line_end.ForwardToLineEnd ();
+							//       line_end.ForwardToLineEnd ();
 							RemoveTaskTagsFromRange (start, line_end);
 						} else if (line.Line == end.Line) {
 							// This is the last line
@@ -395,7 +395,7 @@ namespace Tomboy.Tasks
 							task_mgr.Delete (task);
 						}
 					}
-				} while (line.ForwardLine () && line.Line <= end.Line);
+				} while ( line.ForwardLine () && (line.Line <= end.Line ));
 			}
 		}
 		#endregion // Private Methods
@@ -471,6 +471,7 @@ namespace Tomboy.Tasks
 					               string.Format ("{0}: {1}",
 					                              Catalog.GetString ("todo"),
 					                              task.Summary));
+					task_tag.fillByData(task.Data);
 					break;
 				}
 			} while (iter.ForwardLine());
@@ -499,7 +500,8 @@ namespace Tomboy.Tasks
 					if (task_tag.Uri != task.Uri)
 						continue;
 					
-					task_tag.CompletionDate = task.CompletionDate;
+					task_tag.fillByData(task.Data);
+					//task_tag.CompletionDate = task.CompletionDate;
 					break;
 				}
 			} while (iter.ForwardLine());
@@ -508,7 +510,7 @@ namespace Tomboy.Tasks
 		[GLib.ConnectBeforeAttribute]
 		void OnDeleteRangeConnectBefore (object sender, Gtk.DeleteRangeArgs args)
 		{
-			RemoveTaskTagsFromRange (args.Start, args.End);
+			//RemoveTaskTagsFromRange (args.Start, args.End); // This throws exception when pressing backspace at begginning of next line
 		}
 
 		void OnDeleteRange (object sender, Gtk.DeleteRangeArgs args)

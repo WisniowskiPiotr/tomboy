@@ -25,8 +25,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Underline-mac", "Tomboy\Add
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PassEncrypt-mac", "Tomboy\Addins\PassEncrypt\PassEncrypt-mac.csproj", "{9865ddaf-9512-40db-a6af-2056a690ada9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Todos-mac", "Tomboy\Addins\Todos\Todos-mac.csproj", "{9536d4ae-1fa7-472a-8370-e004bb0dc86e}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebSyncService-mac", "Tomboy\Addins\WebSyncService\WebSyncService-mac.csproj", "{ACD1BF72-4962-11DE-8485-01BF55D89593}"
 EndProject
 Global
