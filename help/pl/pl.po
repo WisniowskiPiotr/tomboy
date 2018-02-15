@@ -1,6 +1,6 @@
 # Polish translation for tomboy help.
 # Copyright © 2008-2017 the tomboy authors.
-# This file is distributed under the same license as the tomboy package.
+# This file is distributed under the same license as the tomboy help.
 # Joanna Mazgaj <jmazgaj@aviary.pl>, 2008.
 # Aleksander Łukasiewicz <aleksander@lukasiewicz.org>, 2009.
 # Asia Słowik <asiaslowik@gmail.com>, 2011.
@@ -10,7 +10,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: tomboy-help\n"
-"POT-Creation-Date: 2017-10-16 21:34+0000\n"
+"POT-Creation-Date: 2017-10-30 03:34+0000\n"
 "PO-Revision-Date: 2017-10-30 04:32+0100\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <community-poland@mozilla.org>\n"
