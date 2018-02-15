@@ -25,6 +25,12 @@ namespace Tomboy.Tasks
 
 		public TaskTag () : base ()
 		{
+			Attributes.Add(PROP_URI,null);
+			Attributes.Add(PROP_CREATION_DATE,null);
+			Attributes.Add(PROP_LAST_CHANGE_DATE,null);
+			Attributes.Add(PROP_DUE_DATE,null);
+			Attributes.Add(PROP_COMPLETION_DATE,null);
+			Attributes.Add(PROP_PRIORITY,null);
 		}
 
 		public override void Initialize (string element_name)
@@ -108,13 +114,14 @@ namespace Tomboy.Tasks
 		{
 			get {
 				string date_str = (string) Attributes [PROP_COMPLETION_DATE];
-				if (date_str == null)
+				if (string.IsNullOrWhiteSpace(date_str))
 					return DateTime.MinValue;
 				else
 					return DateTime.Parse (date_str);
 			}
 			set {
 				Attributes [PROP_COMPLETION_DATE] = ((DateTime)value).ToString ();
+				UpdateStatus ();
 			}
 		}
 
@@ -159,6 +166,15 @@ namespace Tomboy.Tasks
 				
 				Attributes [PROP_PRIORITY] = prop;
 			}
+		}
+
+		public void fillByData(TaskData data)
+		{
+			this.CreationDate = data.CreateDate;
+			this.CompletionDate = data.CompletionDate;
+			this.TaskPriority = data.Priority;
+			this.DueDate = data.DueDate;
+			this.LastChangeDate = data.LastChangeDate;
 		}
 
 //		public bool Complete

@@ -2,6 +2,7 @@
 using System;
 using System.IO;
 using Tomboy;
+using System.Text.RegularExpressions;
 
 namespace Tomboy.Tasks
 {
@@ -40,6 +41,8 @@ public enum TaskPriority :
 			this.data = data;
 			this.filepath = filepath;
 			this.manager = manager;
+
+			FillDataFromSumary();
 
 			save_timeout = new InterruptableTimeout ();
 			save_timeout.Timeout += SaveTimeout;
@@ -192,6 +195,69 @@ public enum TaskPriority :
 
 		#endregion // Public Properties
 
+
+		const string TASK_DATE_REGEX =
+		        @"(\s*[0-9]{4}-[0-9]{2}-[0-9]{2}( [1-9]{2}:[1-9]{2})*:)";
+		const string TASK_PRIORITY_REGEX =
+		        @"(\s*[ABC]{1}:)";
+
+		static Regex dateRegex;
+		static Regex priorityRegex;
+
+		public void FillDataFromSumary ()
+		{
+			dateRegex = new Regex (TASK_DATE_REGEX,
+			        RegexOptions.IgnoreCase | RegexOptions.Compiled
+			        | RegexOptions.Singleline);
+
+			Match dateMatch = dateRegex.Match (Data.Summary);
+			if (dateMatch.Success)
+			{
+				string date = dateMatch.Value.Trim();
+				if(date[date.Length-1]==':')
+					date = date.Remove(dateMatch.Value.Length-1);
+				DateTime datetime;
+				if(DateTime.TryParse(date,out datetime))
+				{
+					Data.Summary = Data.Summary.Replace(dateMatch.Value,"");
+					Data.DueDate = datetime;
+				}
+					
+			}
+
+			priorityRegex = new Regex (TASK_PRIORITY_REGEX,
+			        RegexOptions.IgnoreCase | RegexOptions.Compiled
+			        | RegexOptions.Singleline);
+
+			Match priorityMatch = priorityRegex.Match (Data.Summary);
+			if (priorityMatch.Success)
+			{
+				string priority = priorityMatch.Value.Trim();
+				bool remove=false;
+				switch (priority[0])
+				{
+					case 'A':
+						Data.Priority = TaskPriority.High;
+						remove = true;
+						break;
+					case 'B':
+						Data.Priority = TaskPriority.Normal;
+						remove = true;
+						break;
+					case 'C':
+						Data.Priority = TaskPriority.Low;
+						remove = true;
+						break;
+					default:
+						Data.Priority = TaskPriority.Undefined;
+						remove = false;
+						break;
+				}
+				if (remove)
+					Data.Summary = Data.Summary.Replace(priorityMatch.Value,"");
+			}
+		}
+
 		#region Public Methods
 		public static Task CreateNewTask (string summary,
 		                                  string filepath,
@@ -273,8 +339,10 @@ public enum TaskPriority :
 				return;
 
 			Logger.Log ("Saving task '{0}'...", data.Summary);
+			FillDataFromSumary();
 
 			TaskArchiver.Write (filepath, data);
+			
 
 			if (Saved != null)
 				Saved (this);

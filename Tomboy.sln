@@ -136,6 +136,12 @@ Global
 		{35C7F93C-F4D2-4FD0-B669-B02CE1EF29FD}.Mac|Any CPU.Build.0 = Release|Any CPU
 		{35C7F93C-F4D2-4FD0-B669-B02CE1EF29FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{35C7F93C-F4D2-4FD0-B669-B02CE1EF29FD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9536d4ae-1fa7-472a-8370-e004bb0dc86e}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9536d4ae-1fa7-472a-8370-e004bb0dc86e}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9536d4ae-1fa7-472a-8370-e004bb0dc86e}.Mac|Any CPU.ActiveCfg = Debug|Any CPU
+		{9536d4ae-1fa7-472a-8370-e004bb0dc86e}.Mac|Any CPU.Build.0 = Debug|Any CPU
+		{9536d4ae-1fa7-472a-8370-e004bb0dc86e}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9536d4ae-1fa7-472a-8370-e004bb0dc86e}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -6,7 +6,7 @@ using System.IO;
 using Mono.Unix;
 using Tomboy;
 using Gtk;
-using Gtk.Extras;
+//using Gtk.Extras;
 
 using Mono.Addins;
 
@@ -151,10 +151,10 @@ namespace Tomboy.Tasks
 
 			// Determine whether the icon is near the top/bottom of the screen
 			int position;
-			if (!Tomboy.Tray.MenuOpensUpward ())
-				position = 2;
-			else
-				position = tomboy_tray_menu.Children.Length - 7;
+			//if (!Tomboy.Tray.MenuOpensUpward ())
+				position = 0;
+			//else
+			//	position = tomboy_tray_menu.Children.Length - 7;
 
 			separator = new Gtk.SeparatorMenuItem ();
 			tomboy_tray_menu.Insert (separator, position++);
